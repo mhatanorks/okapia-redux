@@ -1,3 +1,8 @@
+```
+git push -u okapia-redux main
+```
+
+
 パッケージインストール: 
 ```
 npm init
