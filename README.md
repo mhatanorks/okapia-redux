@@ -1,5 +1,6 @@
 ```
 git push -u okapia-redux main
+git pull okapia-redux main
 ```
 
 
