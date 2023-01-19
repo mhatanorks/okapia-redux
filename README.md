@@ -1,5 +1,5 @@
 ```
-git push -u okapia-redux main
+git push -u okapia-redux {ブランチ名}
 git pull okapia-redux main
 ```
 
