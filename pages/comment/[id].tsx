@@ -63,7 +63,7 @@ export default function Comment({ tour }: { tour: Array<Tour> }) {
       await supabase.from("comment").insert({ tourid, name, text, date });
       setThanksmessage((prev) => !prev);
       setTimeout(() => {
-        router.push("/tour");
+        router.push("/");
       }, 2000);
     }
   };

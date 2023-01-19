@@ -149,7 +149,7 @@ export default function Pay() {
         console.log(error);
       }
     }
-    router.push("/tour/booking_done");
+    router.push("/booking_done");
   };
   return (
     <>

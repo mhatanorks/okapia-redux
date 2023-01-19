@@ -3,17 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 const config = {
   matcher: [
     "/",
-    "/tour/index",
-    "/tour/[id]",
-    "/tour/booking_confirmation",
-    "/tour/booking_done",
-    "/tour/cart",
-    "/tour/create-user",
-    "/tour/login",
-    "/tour/pay",
-    "/tour/comment/[id]",
-    "/tour/map/[areaId]",
-    "/tour/map/search-map",
+    "/index",
+    "/[id]",
+    "/booking_confirmation",
+    "/booking_done",
+    "/cart",
+    "/create-user",
+    "/login",
+    "/pay",
+    "/comment/[id]",
+    "/map/[areaId]",
+    "/map/search-map",
   ],
 };
 

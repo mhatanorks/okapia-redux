@@ -12,7 +12,6 @@ import { SearchResult } from "../components/serchPage/SearchResult";
 export default function Home() {
   const [url, setUrl] = useState("/api/supabaseTours");
   const[subtitle,setSubtitle]=useState(false);
-
   const [isOpen, setIsOpen] = useState(true);
 
   setTimeout(() => {
@@ -60,7 +59,9 @@ export default function Home() {
       </>
     );
   };
+
   const SearchResultMemo = useMemo(() => <SearchResult url={url} subtitle={subtitle}/>, [url]);
+
   return (
     <div>
       <Head>

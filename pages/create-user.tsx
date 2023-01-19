@@ -101,7 +101,7 @@ const CreateUser = () => {
       const tours = [] as [];
       // inCartsにユーザーのかごを作る
       await supabase.from("inCarts").insert({ userId, tours });
-      (await Router.push("/tour/login")) as any; // .reloaded()リロード
+      (await Router.push("/login")) as any; // .reloaded()リロード
     }
   };
 
@@ -486,5 +486,5 @@ const SelectDays = () => {
 //   body: JSON.stringify(inCartsData),
 // });
 // console.log(await addInCarts.json());
-// await Router.push("/tour/login") as any; // .reloaded()リロード
+// await Router.push("/login") as any; // .reloaded()リロード
 // }
