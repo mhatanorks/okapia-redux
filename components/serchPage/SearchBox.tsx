@@ -7,9 +7,9 @@ import {
   City,
   Tour,
 } from "../../types/types";
-import { EuropeCountry, France, Italy, Spain } from "./serchEurope";
-import { AsiaCountry, Korea, Philippines, Taiwan } from "./serchAsia";
-import { NorthameCountry, Uni } from "./sertchNorthAmerica";
+import { EuropeCountry, France, Italy, Spain } from "./searchEurope";
+import { AsiaCountry, Korea, Philippines, Taiwan } from "./searchAsia";
+import { NorthameCountry, Uni } from "./SearchNorthAmerica";
 import { Australia, OceCountry } from "./oceania";
 import { Bra, SouthameCountry } from "./southame";
 import { Africa, Egy } from "./africa";
@@ -209,35 +209,35 @@ export function SearchBox({ setUrl,setSubtitle }: Props) {
               {"eu" === areaCode && (
                 <EuropeCountry
                   country={country}
-                  onCountryChanege={onCountryChange}
+                  onCountryChange={onCountryChange}
                 />
               )}
               {"asi" === areaCode && (
                 <AsiaCountry
                   country={country}
-                  onCountryChanege={onCountryChange}
+                  onCountryChange={onCountryChange}
                 />
               )}
               {"northame" === areaCode && (
                 <NorthameCountry
                   country={country}
-                  onCountryChanege={onCountryChange}
+                  onCountryChange={onCountryChange}
                 />
               )}
               {"oce" === areaCode && (
                 <OceCountry
                   country={country}
-                  onCountryChanege={onCountryChange}
+                  onCountryChange={onCountryChange}
                 />
               )}
               {"southame" === areaCode && (
                 <SouthameCountry
                   country={country}
-                  onCountryChanege={onCountryChange}
+                  onCountryChange={onCountryChange}
                 />
               )}
               {"af" === areaCode && (
-                <Africa country={country} onCountryChanege={onCountryChange} />
+                <Africa country={country} onCountryChange={onCountryChange} />
               )}
               {"fr" === country && <France city={city} setCity={setCity} />}
               {"ita" === country && <Italy city={city} setCity={setCity} />}

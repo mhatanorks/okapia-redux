@@ -29,34 +29,34 @@ export default function searchJPmap() {
                 <div className={style.worldregion}>
                   <ul>
                     <li className={style.ame}>
-                      <a href="/tour/map/9">アメリカ</a>
+                      <a href="/map/9">アメリカ</a>
                     </li>
                     <li className={style.aus}>
-                      <a href="/tour/map/5">オーストラリア</a>
+                      <a href="/map/5">オーストラリア</a>
                     </li>
                     <li className={style.fr}>
-                      <a href="/tour/map/1">フランス</a>
+                      <a href="/map/1">フランス</a>
                     </li>
                     <li className={style.egy}>
-                      <a href="/tour/map/8">エジプト</a>
+                      <a href="/map/8">エジプト</a>
                     </li>
                     <li className={style.ko}>
-                      <a href="/tour/map/3">韓国</a>
+                      <a href="/map/3">韓国</a>
                     </li>
                     <li className={style.ita}>
-                      <a href="/tour/map/2">イタリア</a>
+                      <a href="/map/2">イタリア</a>
                     </li>
                     <li className={style.phi}>
-                      <a href="/tour/map/4">フィリピン</a>
+                      <a href="/map/4">フィリピン</a>
                     </li>
                     <li className={style.bra}>
-                      <a href="/tour/map/7">ブラジル</a>
+                      <a href="/map/7">ブラジル</a>
                     </li>
                     <li className={style.sp}>
-                      <a href="/tour/map/10">スペイン</a>
+                      <a href="/map/10">スペイン</a>
                     </li>
                     <li className={style.taiwa}>
-                      <a href="/tour/map/6">台湾</a>
+                      <a href="/map/6">台湾</a>
                     </li>
                   </ul>
                 </div>
@@ -82,25 +82,25 @@ export default function searchJPmap() {
                 <div className={style.jpregion}>
                   <ul>
                     <li className={style.hoka}>
-                      <a href="/tour/map/14">北海道</a>
+                      <a href="/map/14">北海道</a>
                     </li>
                     <li className={style.miya}>
-                      <a href="/tour/map/12">宮城</a>
+                      <a href="/map/12">宮城</a>
                     </li>
                     <li className={style.kyo}>
-                      <a href="/tour/map/13">京都</a>
+                      <a href="/map/13">京都</a>
                     </li>
                     <li className={style.osk}>
-                      <a href="/tour/map/11">大阪</a>
+                      <a href="/map/11">大阪</a>
                     </li>
                     <li className={style.fuku}>
-                      <a href="/tour/map/15">福岡</a>
+                      <a href="/map/15">福岡</a>
                     </li>
                     <li className={style.naga}>
-                      <a href="/tour/map/16">長崎</a>
+                      <a href="/map/16">長崎</a>
                     </li>
                     <li className={style.oki}>
-                      <a href="/tour/map/17">沖縄</a>
+                      <a href="/map/17">沖縄</a>
                     </li>
                   </ul>
                 </div>

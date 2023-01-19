@@ -3,14 +3,14 @@ import { City, Country } from "../../types/types";
 
 //海外→南米を選んだ場合
 export const SouthameCountry = ({
-  onCountryChanege,
+  onCountryChange,
   country,
 }: {
-  onCountryChanege: Function;
+  onCountryChange: Function;
   country: Country;
 }) => {
   const changeHandler = (e: { target: { value: any } }) => {
-    onCountryChanege(e.target.value);
+    onCountryChange(e.target.value);
   };
   return (
     <>

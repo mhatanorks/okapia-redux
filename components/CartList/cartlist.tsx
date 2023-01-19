@@ -15,16 +15,18 @@ type Props = {
 export const Cartlist = ({ tour, setAmount, deleteHandler,tourNew}: Props) => {
   const cookie = useCookie();
   const loginId = cookie.loginId;
-  const [num, setNum] = useState(tour.numberOfPeople);
+  const [num, setNum] = useState<number>(tour.numberOfPeople); 
   const router = useRouter();
-
+  
+  
   const HandleNumChange = (e: { target: { value: any } }) => {
-    const newNum = e.target.value;
+    const newNum = e.target.value; 
     setNum(newNum);
     setAmount((prev: number) => prev - tour.price * num + tour.price * newNum);
+    tour.numberOfPeople = Number(newNum) // 参加人数の上書き
   };
 
-  const deletesumHandler=(val:number)=>{
+  const deleteSumHandler=(val:number)=>{
     deleteHandler(val);
     setAmount((prev:number)=>prev-tour.price*num);
   }
@@ -47,6 +49,7 @@ export const Cartlist = ({ tour, setAmount, deleteHandler,tourNew}: Props) => {
               <li>日程：{tour.tourDate}</li>
               <li>開始時間：{tour.startTime}時</li>
               <li>概要：{tour.description}</li>
+              <li>人数：{num}</li>
               <li>価格：{Number(tour.price).toLocaleString()}円</li>
             </ul>
           </div>
@@ -54,7 +57,7 @@ export const Cartlist = ({ tour, setAmount, deleteHandler,tourNew}: Props) => {
             <button
               className={Styles.delete_button}
               type="submit"
-              onClick={(e) => deletesumHandler(tour.id)}
+              onClick={(e) => deleteSumHandler(tour.id)}
             >
               削除
             </button>

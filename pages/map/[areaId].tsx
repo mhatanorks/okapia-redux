@@ -109,7 +109,7 @@ export default function worldMapContent({ tour }: { tour: Array<Tour> }) {
                     </div>
 
                     <div id="button" className={styles.button_around}>
-                      <Link href={`/tour/${to.id}`}>
+                      <Link href={`/${to.id}`}>
                         <button className={styles.button}>詳細はこちら </button>
                       </Link>
                     </div>

@@ -1,11 +1,11 @@
 import Head from "next/head";
+import Layout from "../components/layout";
 import styles from "../styles/tripdetail.module.css";
 import { TripdetailContent } from "../components/tripdetailContent";
 import { TripdetailCount } from "../components/tripdetailCount";
 import { TripdetailAttention } from "../components/tripdetailAttention";
 import { TripdetailActivity } from "../components/tripdetailActivity";
 import { TripdetailImage } from "../components/tripdetailImage";
-import Layout from "../components/layout";
 import { TripdetailTimes } from "../components/tripdetailTimes";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
     console.log(error);
   }
 
-  const tours = await data;
+  const tours = data;
   const paths = tours.map((tour: { id: number }) => {
     return {
       params: {
@@ -51,8 +51,8 @@ export const getStaticProps = async ({ params }:{params: any}) => {
     .from("comment")
     .select("*")
     .eq("tourid", params.id);
-  const comment = await comRes.data;
-  console.log(comment);
+  const comment = comRes.data;
+  // console.log(comment);
   return {
     props: { tour, comment },
     revalidate: 10,
@@ -74,7 +74,7 @@ export default function Tripdetail({
   const [dateError, setDateError] = useState(false);
   const [timeError, setTimeError] = useState(false);
   const [error_message, setErrorMessage] = useState(false);
-
+  
   async function PostData(e: { preventDefault: () => void }) {
     if (dateError === false || timeError === false) {
       setErrorMessage(true);
@@ -120,7 +120,7 @@ export default function Tripdetail({
         };
         localStorage.setItem("tours", JSON.stringify(addTourData));
       }
-      router.push("/tour/cart");
+      router.push("/cart");
     } else {
       const { data, error } = await supabase
         .from("inCarts")
@@ -131,7 +131,7 @@ export default function Tripdetail({
         console.log(error);
       }
 
-      const inCarts = await data;
+      const inCarts = data;
       console.log(inCarts);
       {
         inCarts.map(
@@ -170,7 +170,7 @@ export default function Tripdetail({
                 id: cart.id,
               })
               .eq("userId", loginId);
-            router.push("/tour/cart");
+            router.push("/cart");
           }
         );
       }

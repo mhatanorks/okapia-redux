@@ -15,7 +15,8 @@ const fetcher = (resource: string, init: any) =>
 export function BackCart({ loginId, amount, setAmount }: Props) {
   const { data, error } = useSWR(`/api/supabaseCart`, fetcher);
   const [tours, setTours] = useState<Tour[]>([]);
-
+  console.log(tours)
+  // 読み込み時にカートを状態保持、金額計算
   useEffect(() => {
     if (!data) return;
     const cart = data[0];

@@ -8,6 +8,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { Tour } from "../../types/types";
 import { useState } from "react";
 import Router from "next/router";
+import { supabase } from "../../utils/supabaseClient";
 
 type Props = {
   tours: Array<Tour>;
@@ -16,6 +17,7 @@ type Props = {
   deleteHandler: Function;
   loginId: string;
 };
+
 export function CartItems({
   tours,
   amount,
@@ -24,8 +26,8 @@ export function CartItems({
   loginId,
 }: Props) {
   const [errorMessage, setErrorMessage] = useState("");
-
   const [tourNew, setTourNew] = useState<any>([]);
+  
 
   useEffect(() => {
     judgeError();
@@ -43,10 +45,12 @@ export function CartItems({
       } else if (Array.isArray(v)) {
         newTour.set(tour.tourDate, [...v, tour.tourName]);
       }
+      console.log(v)
     });
 
     setTourNew(newTour);
   };
+console.log(tours)
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     // 無効な入力値で送信されないために初めにキャンセルする
@@ -55,9 +59,15 @@ export function CartItems({
     if (tours.length === 0) {
       setErrorMessage("*カートに商品を追加してください。*");
     } else if (!loginId) {
-      Router.push("/tour/login") as any;
+      Router.push("/login") as any;
     } else {
-      Router.push("/tour/pay") as any;
+      Router.push("/pay") as any;
+
+      // 参加人数変更 カート更新
+      const { error } = await supabase
+      .from("inCarts")
+      .update({ tours: tours })
+      .eq("userId", loginId);
     }
   };
   return (
