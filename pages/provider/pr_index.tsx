@@ -9,10 +9,12 @@ import { useState, useMemo } from "react";
 import { SearchBox } from "../../components/serchPage/SearchBox";
 import { SearchResult } from "../../components/serchPage/SearchResult";
 
-export default function Home() {
-  const [url, setUrl] = useState("/api/supabaseTours");
-  const[subtitle,setSubtitle]=useState(false);
+import type { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
 
+export default function Home() {
+  const url = useSelector((state: RootState) => state.url.value);
+  const [subtitle, setSubtitle] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
 
   setTimeout(() => {
@@ -60,7 +62,12 @@ export default function Home() {
       </>
     );
   };
-  const SearchResultMemo = useMemo(() => <SearchResult url={url} subtitle={subtitle}/>, [url]);
+
+  const SearchResultMemo = useMemo(
+    () => <SearchResult subtitle={subtitle} />,
+    [url]
+  );
+
   return (
     <div>
       <Head>
@@ -92,10 +99,10 @@ export default function Home() {
         <Slider />
       </div>
       <div className={styles.search_box}>
-        <SearchBox setUrl={setUrl} setSubtitle={setSubtitle} />
+        <SearchBox setSubtitle={setSubtitle} />
       </div>
       {SearchResultMemo}
-    
+
       <Footer />
     </div>
   );

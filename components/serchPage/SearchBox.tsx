@@ -1,12 +1,5 @@
 import styles from "../../styles/search-page.module.css";
-import {
-  Abroad,
-  Prefecture,
-  Area,
-  Country,
-  City,
-  Tour,
-} from "../../types/types";
+import { Abroad, Prefecture, Area, Country, City } from "../../types/types";
 import { EuropeCountry, France, Italy, Spain } from "./searchEurope";
 import { AsiaCountry, Korea, Philippines, Taiwan } from "./searchAsia";
 import { NorthameCountry, Uni } from "./SearchNorthAmerica";
@@ -16,12 +9,18 @@ import { Africa, Egy } from "./africa";
 import Link from "next/link";
 import { useState } from "react";
 
+import type { RootState } from "../../redux/store";
+import { useSelector, useDispatch } from "react-redux";
+import { setUrl } from "../../redux/states/urlSlice";
+
 type Props = {
-  setUrl: Function;
-  setSubtitle:Function
+  setSubtitle: Function;
 };
 
-export function SearchBox({ setUrl,setSubtitle }: Props) {
+export function SearchBox({ setSubtitle }: Props) {
+  const url = useSelector((state: RootState) => state.url.value);
+  const dispatch = useDispatch();
+
   const [abroad, setAbroad] = useState<Abroad>("abroad");
   const [prefecture, setPrefecture] = useState<Prefecture>("");
   const [areaCode, setArea] = useState<Area>("");
@@ -84,7 +83,6 @@ export function SearchBox({ setUrl,setSubtitle }: Props) {
     area: Area;
     onAreaChange: Function;
   }) => {
-
     const changeHandler = (e: { target: { value: any } }) => {
       onAreaChange(e.target.value);
     };
@@ -115,7 +113,6 @@ export function SearchBox({ setUrl,setSubtitle }: Props) {
       </div>
     );
   };
-
 
   // 国内を選んだ場合
   const RouteJapan = ({
@@ -158,6 +155,8 @@ export function SearchBox({ setUrl,setSubtitle }: Props) {
     setSubtitle(true);
     e.preventDefault();
     let query = "?";
+    console.log(query);
+    console.log(url);
 
     if (abroad.length > 0) {
       if (areaCode.length > 0) {
@@ -177,11 +176,11 @@ export function SearchBox({ setUrl,setSubtitle }: Props) {
       } else if (prefecture) {
         query = query + `abroad=${abroad}&prefecture=${prefecture}`;
       } else {
-        query = (query + `abroad=${abroad}`);
+        query = query + `abroad=${abroad}`;
       }
     }
-   
-    setUrl(`/api/supabaseTours${query}`);
+
+    dispatch(setUrl(query));
   };
   return (
     <>

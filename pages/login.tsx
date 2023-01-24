@@ -44,7 +44,7 @@ export default function Login() {
           }
 
           //ここからログインしたidにローカルデータを紐付けるコードを記載
-          const { data, error }: {data: any, error: any} = await supabase
+          const { data, error }: { data: any; error: any } = await supabase
             .from("users")
             .select("*")
             .eq("mailAddress", mailAddress)
@@ -68,7 +68,7 @@ export default function Login() {
             return;
           } else {
             //バックデータのカートの中身を取得
-            const { data }: {data: any} = await supabase
+            const { data }: { data: any } = await supabase
               .from("inCarts")
               .select("*")
               .eq("userId", id);
@@ -106,7 +106,7 @@ export default function Login() {
   };
   return (
     <>
-        <Head>
+      <Head>
         <title>ログインページ</title>
       </Head>
       <Layout>

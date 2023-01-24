@@ -2,7 +2,7 @@ import styles from "../styles/tripdetail.module.css";
 
 type Props = {
   tour: {
-    times: number
+    times: number;
   };
   setTourDate: Function;
   setStartTime: Function;
@@ -22,23 +22,21 @@ export function TripdetailTimes({
   setTimeError,
 }: Props) {
   function changeDate(e: { target: { value: string } }) {
-    if(dateError === true && e.target.value === "") {
+    if (dateError === true && e.target.value === "") {
       setDateError(false);
-    }else {
-    setTourDate(e.target.value);
-    setDateError(true);
+    } else {
+      setTourDate(e.target.value);
+      setDateError(true);
+    }
   }
-}
 
   function changeTime(e: { target: { value: string } }) {
-
-    if(timeError === true && e.target.value === "0") {
+    if (timeError === true && e.target.value === "0") {
       setTimeError(false);
-    }else {
-    setStartTime(Number(e.target.value));
-    setTimeError(true);
+    } else {
+      setStartTime(Number(e.target.value));
+      setTimeError(true);
     }
-
   }
 
   return (

@@ -27,7 +27,6 @@ export function CartItems({
 }: Props) {
   const [errorMessage, setErrorMessage] = useState("");
   const [tourNew, setTourNew] = useState<any>([]);
-  
 
   useEffect(() => {
     judgeError();
@@ -45,12 +44,12 @@ export function CartItems({
       } else if (Array.isArray(v)) {
         newTour.set(tour.tourDate, [...v, tour.tourName]);
       }
-      console.log(v)
+      console.log(v);
     });
 
     setTourNew(newTour);
   };
-console.log(tours)
+  console.log(tours);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     // 無効な入力値で送信されないために初めにキャンセルする
@@ -65,9 +64,9 @@ console.log(tours)
 
       // 参加人数変更 カート更新
       const { error } = await supabase
-      .from("inCarts")
-      .update({ tours: tours })
-      .eq("userId", loginId);
+        .from("inCarts")
+        .update({ tours: tours })
+        .eq("userId", loginId);
     }
   };
   return (
