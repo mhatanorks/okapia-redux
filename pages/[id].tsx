@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }:{params: any}) => {
+export const getStaticProps = async ({ params }: { params: any }) => {
   if (!params) return;
   const { data, error } = await supabase
     .from("tours")
@@ -74,7 +74,7 @@ export default function Tripdetail({
   const [dateError, setDateError] = useState(false);
   const [timeError, setTimeError] = useState(false);
   const [error_message, setErrorMessage] = useState(false);
-  
+
   async function PostData(e: { preventDefault: () => void }) {
     if (dateError === false || timeError === false) {
       setErrorMessage(true);

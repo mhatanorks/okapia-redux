@@ -12,32 +12,25 @@ const getAirportAPI = async (req: NextApiRequest, res: NextApiResponse) => {
         if (cityCode) {
           query = query
             .eq("abroad", abroad)
-            .eq("areaCode",areaCode)
+            .eq("areaCode", areaCode)
             .eq("countryCode", countryCode)
             .eq("cityCode", cityCode);
-        }else{
+        } else {
           query = query
             .eq("abroad", abroad)
-            .eq("areaCode",areaCode)
-            .eq("countryCode", countryCode)
-
+            .eq("areaCode", areaCode)
+            .eq("countryCode", countryCode);
         }
-      }else{
-        query = query
-            .eq("abroad", abroad)
-            .eq("areaCode",areaCode)
+      } else {
+        query = query.eq("abroad", abroad).eq("areaCode", areaCode);
       }
-    }else if(prefecture){
-      query = query
-              .eq("abroad", abroad)
-              .eq("prefecture",prefecture)
-    }else{
-      query = query
-              .eq("abroad", abroad)
+    } else if (prefecture) {
+      query = query.eq("abroad", abroad).eq("prefecture", prefecture);
+    } else {
+      query = query.eq("abroad", abroad);
     }
   }
 
-  
   const { data, error } = await query;
 
   // 401 Unauthorized、認証が必要

@@ -10,7 +10,7 @@ export const getStaticPaths = async () => {
   const { data, error } = await supabase.from("tours").select("*"); // テーブル名 "tours" のデータを取得
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  const tours = await data;
+  const tours = data;
   const paths = tours.map((tour: { id: number }) => {
     return {
       params: {
@@ -31,7 +31,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     .eq("id", params.id); // テーブル名 "tours.id" のデータを取得
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  const tour = await data;
+  const tour = data;
   return {
     props: { tour },
     revalidate: 10,

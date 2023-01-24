@@ -1,45 +1,46 @@
 import Image from "next/legacy/image";
 import { CartdetailCount } from "./cartdetailCount";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useRouter } from "next/router";
-import useCookie from "../../hooks/useCookie";
 import Styles from "../../styles/cartlist.module.css";
 
 type Props = {
-  tour:any;
+  tour: any;
   setAmount: Dispatch<SetStateAction<number>>;
   deleteHandler: Function;
-  tourNew:any;
+  tourNew: any;
 };
 
-export const Cartlist = ({ tour, setAmount, deleteHandler,tourNew}: Props) => {
-  const cookie = useCookie();
-  const loginId = cookie.loginId;
-  const [num, setNum] = useState<number>(tour.numberOfPeople); 
-  const router = useRouter();
-  
-  
+export const Cartlist = ({
+  tour,
+  setAmount,
+  deleteHandler,
+  tourNew,
+}: Props) => {
+  const [num, setNum] = useState<number>(tour.numberOfPeople);
+
   const HandleNumChange = (e: { target: { value: any } }) => {
-    const newNum = e.target.value; 
+    const newNum = e.target.value;
     setNum(newNum);
-    setAmount((prev: number) => prev - tour.price * num + tour.price * newNum);
-    tour.numberOfPeople = Number(newNum) // 参加人数の上書き
+    setAmount((prev: number) => prev - tour.price * num + tour.price * newNum); // setAmountの状態変更
+    tour.numberOfPeople = Number(newNum); // 参加人数の上書き
   };
 
-  const deleteSumHandler=(val:number)=>{
+  const deleteSumHandler = (val: number) => {
     deleteHandler(val);
-    setAmount((prev:number)=>prev-tour.price*num);
-  }
+    setAmount((prev: number) => prev - tour.price * num);
+  };
 
   return (
     <>
-      <div className={Styles.each_tour} >
+      <div className={Styles.each_tour}>
         <p className={Styles.duplicate}>
-          {Array.isArray(tourNew.get(tour.tourDate))&&
-          tourNew.get(tour.tourDate).length>1&&
-          "※"+(tourNew.get(tour.tourDate)).filter(function(value : any){
-            return value !=tour.tourName
-          })+"と日程が重複しています。"}
+          {Array.isArray(tourNew.get(tour.tourDate)) &&
+            tourNew.get(tour.tourDate).length > 1 &&
+            "※" +
+              tourNew.get(tour.tourDate).filter(function (value: any) {
+                return value != tour.tourName;
+              }) +
+              "と日程が重複しています。"}
         </p>
         <h3 className={Styles.padding}>{tour.tourName}</h3>
         <div className={Styles.flex}>

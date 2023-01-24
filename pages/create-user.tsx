@@ -92,7 +92,7 @@ const CreateUser = () => {
       });
 
       // 送信したユーザーのIDを取得
-      const { data, error }: {data: any, error: any} = await supabase
+      const { data, error }: { data: any; error: any } = await supabase
         .from("users")
         .select()
         .eq("mailAddress", `${mailAddress}`);
@@ -184,7 +184,7 @@ const CreateUser = () => {
 
               <div className={styles.form_birth}>
                 <label className={styles.form_label} htmlFor="">
-                  生年月日  
+                  生年月日
                 </label>
                 <div className={styles.form_birth_group}>
                   <div className={styles.form_birth_group_y}>

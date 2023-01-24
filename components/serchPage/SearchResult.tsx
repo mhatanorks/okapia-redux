@@ -2,15 +2,19 @@ import styles from "../../styles/search-page.module.css";
 import useSWR from "swr";
 import { SearchSelect } from "./searchSelect";
 
+import type { RootState } from "../../redux/store";
+import { useSelector, useDispatch } from "react-redux";
+
+
 type Props = {
-  url: string;
   subtitle:boolean
 };
 
 const fetcher = (resource: any, init: any) =>
   fetch(resource, init).then((res) => res.json());
 
-export function SearchResult({ url,subtitle }: Props) {
+export function SearchResult({ subtitle }: Props) {
+  const url = useSelector((state: RootState) => state.url.value);
   const { data, error } = useSWR(url, fetcher);
 
   if (error) return <div>failed to load</div>;

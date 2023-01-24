@@ -111,10 +111,7 @@ export default function Pay() {
     //   });
 
     //cartを空にする
-    await supabase
-    .from("inCarts")
-    .update({ tours: [] })
-    .eq("userId", loginId);
+    await supabase.from("inCarts").update({ tours: [] }).eq("userId", loginId);
 
     // if (cart) {
     //   fetch(`/api/inCarts/${cart?.id}`, {

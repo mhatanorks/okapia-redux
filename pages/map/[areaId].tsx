@@ -27,7 +27,11 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: {params: { areaId: number }}) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { areaId: number };
+}) => {
   if (!params) return;
   const { data, error } = await supabase
     .from("tours")

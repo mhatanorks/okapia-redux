@@ -7,13 +7,11 @@ import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { Order } from "../types/types";
 
-
 export default function BookingDone() {
   const cookie = useCookie();
   const loginId = cookie.loginId;
   const [numData, setNumData] = useState<Order>();
   //  if (!numData) return;
-   
 
   useEffect(() => {
     getOrders();
@@ -26,7 +24,7 @@ export default function BookingDone() {
       .eq("userId", loginId);
     if (!data) return <div>loading...</div>;
     setData(data);
-    console.log("data", data)
+    console.log("data", data);
 
     const cartItem = data[data.length - 1];
     setNumData(cartItem);
@@ -34,8 +32,6 @@ export default function BookingDone() {
   };
 
   console.log("numData", numData);
-
-  
 
   return (
     <>
@@ -54,9 +50,11 @@ export default function BookingDone() {
           <div className={styles.booking_number}>
             <p>ご予約を承りました。</p>
             <p>ご予約番号</p>
-              { numData? 
-                   <p className={styles.booking_RsNumber}>{numData.rsNumber}</p>
-                :""}
+            {numData ? (
+              <p className={styles.booking_RsNumber}>{numData.rsNumber}</p>
+            ) : (
+              ""
+            )}
             <p className={styles.booking_message}>
               お問合せに必要な番号です。大切に保管してください。
             </p>
