@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Image from "next/legacy/image";
 import styles from "../../styles/toppage.module.css";
-import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
+import { Header } from "../header";
+import { Footer } from "../footer";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 import { useState, useMemo } from "react";
-import { SearchBox } from "../../components/serchPage/SearchBox";
-import { SearchResult } from "../../components/serchPage/SearchResult";
+import { SearchBox } from "../serchPage/SearchBox";
+import { SearchResult } from "../serchPage/SearchResult";
 
 import type { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
