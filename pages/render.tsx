@@ -45,7 +45,6 @@ export const urlSlice = createSlice({
 
 import type { RootState } from "../redux/store";
 import { useSelector, useDispatch } from "react-redux";
-import { Type } from "typescript";
 
 const url = useSelector((state: RootState) => state.url.value);
 const dispatch = useDispatch();

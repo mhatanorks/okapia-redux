@@ -57,9 +57,7 @@ export default function Login() {
           //   .then(async (dat) => {
 
           const user = data[0];
-          // console.log(user);
           const id = user.id;
-          // console.log(id);
           const localtours = JSON.parse(
             localStorage.getItem("tours") ?? '{"tours:[]}'
           );

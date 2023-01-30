@@ -66,11 +66,11 @@ export default function Tripdetail({
   tour: Tour;
   comment: Comment[];
 }) {
+  const router = useRouter();
+  const cookie = useCookie();
   const [tourDate, setTourDate] = useState("");
   const [startTime, setStartTime] = useState("");
   const [numberOfPeople, setNumberOfPeople] = useState(1);
-  const router = useRouter();
-  const cookie = useCookie();
   const [dateError, setDateError] = useState(false);
   const [timeError, setTimeError] = useState(false);
   const [error_message, setErrorMessage] = useState(false);
