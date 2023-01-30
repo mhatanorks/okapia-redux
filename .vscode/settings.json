@@ -1,5 +1,5 @@
 {
-    "dartsass.targetDirectory": "../Okapia-Tour/styles",
+    "dartsass.targetDirectory": "../okapia-redux/styles",
     "cSpell.words": [
         "aday",
         "buttonsubmit",
@@ -13,6 +13,7 @@
         "datam",
         "dbjson",
         "fuku",
+        "hoka",
         "Item",
         "localtours",
         "miya",
@@ -27,6 +28,7 @@
         "splidejs",
         "State",
         "supabase",
+        "tako",
         "testarray",
         "Thanksmessage",
         "toppage",

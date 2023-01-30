@@ -191,12 +191,12 @@
 .list_includes {
     list-style-type: none;
     padding-left: 20px;
-    width: 367px;
+    width: 342px;
     @include pub.mq("tab") {
         width: 290px;
     }
     @include pub.mq("sp") {
-        width: 300px;
+        width: 53vw;
     }
 }
 

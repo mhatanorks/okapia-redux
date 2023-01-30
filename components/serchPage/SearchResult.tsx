@@ -6,14 +6,10 @@ import type { RootState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 
 
-type Props = {
-  subtitle:boolean
-};
-
 const fetcher = (resource: any, init: any) =>
   fetch(resource, init).then((res) => res.json());
 
-export function SearchResult({ subtitle }: Props) {
+export function SearchResult() {
   const url = useSelector((state: RootState) => state.url.value);
   const { data, error } = useSWR(url, fetcher);
 
@@ -24,7 +20,7 @@ export function SearchResult({ subtitle }: Props) {
   return (
     <>
       <div id="serch_result" className={styles.search_result}>
-        <SearchSelect data={data} length={length} subtitle={subtitle} />
+        <SearchSelect data={data} length={length}/>
       </div>
     </>
   );

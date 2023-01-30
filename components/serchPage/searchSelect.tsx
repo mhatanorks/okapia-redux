@@ -3,14 +3,17 @@ import { Tour } from "../../types/types";
 import styles from "../../styles/search-page.module.css";
 import Link from "next/link";
 
+import type { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import { DetailBTN } from "../MUI/button/searchSelect";
 
 type Props = {
-  data:[]
-  subtitle:boolean;
-  length:number
+  data: [];
+  length: number;
 };
 
-export function SearchSelect({ data, length, subtitle }:Props) {
+export function SearchSelect({ data, length }: Props) {
+  const subtitle = useSelector((state: RootState) => state.subtitle.value);
 
   for (let i = length - 2; i > 0; i--) {
     let r = Math.floor(Math.random() * (i + 1));
@@ -19,11 +22,14 @@ export function SearchSelect({ data, length, subtitle }:Props) {
     data[r] = tmp;
   }
 
-  // console.log(data);
   return (
     <>
-    {subtitle?<div className={styles.headline}>検索結果</div>:<div className={styles.headline}>おすすめ</div>}
-      
+      {subtitle ? (
+        <div className={styles.headline}>検索結果</div>
+      ) : (
+        <div className={styles.headline}>おすすめ</div>
+      )}
+
       {data.map((item: Tour) => {
         return (
           <div key={item.id} id="content" className={styles.eachcontent}>
@@ -74,10 +80,8 @@ export function SearchSelect({ data, length, subtitle }:Props) {
                   </div>
 
                   <div id="button" className={styles.button_around}>
-                    {" "}
-                    {/* 詳細ボタン */}
                     <Link href={`/${item.id}`}>
-                      <button className={styles.button}>詳細はこちら </button>
+                      <DetailBTN />
                     </Link>
                   </div>
                 </div>

@@ -3,17 +3,14 @@
 }
 
 .search_box_container {
-  border-bottom: 3px solid #FFC896;
-  border-left: 3px solid #FFC896;
-  border-right: 3px solid #FFC896;
-  border-radius: 0 20px 20px 20px;
+  border: 3px solid #FFC896;
+  border-radius: 20px;
   text-align: center;
-  background-color: rgba(251, 251, 250, 0.7);
+  background-color: #fff7ee;
 }
 
 .search_title {
-  margin: 0px 0 0;
-  padding-top: 20px ;
+  margin: 20px 0 0;
   font-size: 32px;
   display: flex;
   align-items: center;
@@ -220,7 +217,7 @@
 .list_includes {
   list-style-type: none;
   padding-left: 20px;
-  width: 367px;
+  width: 342px;
 }
 @media (min-width: 768px) and (max-width: 1050px) {
   .list_includes {
@@ -229,7 +226,7 @@
 }
 @media (max-width: 767px) {
   .list_includes {
-    width: 300px;
+    width: 53vw;
   }
 }
 
@@ -289,14 +286,6 @@
   right: -31px;
 }
 
-.headlineArea {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
-  margin: 0 auto;
-}
-
 .button {
   color: #fff;
   background-color: #eb6100;
@@ -333,33 +322,4 @@
   color: #eb6100;
   font-size: 18px;
   font-weight: 700;
-}
-
-.howtosearch{
-  display: flex;
-  min-width: 40vw;
-  /* height: 55px; */
-  
-}
-
-.searchareaname{
-  background-color: rgba(251, 251, 250, 0.7);
-  min-width: 20vw;
-  text-align: center;
-  border-top: 3px solid #FFC896;
-  border-left: 3px solid #FFC896;  
-  border-right: 3px solid #FFC896;  
-  border-radius: 20px 10px 0 0;
-  padding: 10px;
-}
-
-.searchmap{
-  background-color: rgba(251, 251, 250, 0.8);
-  min-width: 20vw;
-  text-align: center;
-  border-top: 3px solid #FFC896;
-  border-right: 3px solid #FFC896;
-  border-bottom: 3px solid #FFC896; 
-  border-radius: 10px 15px 0 0;
-  padding: 10px;
 }

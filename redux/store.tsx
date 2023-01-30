@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import urlReducer from "./states/urlSlice";
+import subtitleReducer from "./states/subtitleSlice";
 
 export const store = configureStore({
   reducer: {
@@ -7,6 +8,7 @@ export const store = configureStore({
     {name}: {Slice関数名}
     */
     url: urlReducer,
+    subtitle: subtitleReducer
   },
 });
 

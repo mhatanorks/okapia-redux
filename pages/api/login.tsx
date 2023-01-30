@@ -15,7 +15,7 @@ export default async function Handler(req: NextApiRequest, res: NextApiResponse)
   const name = encodeURI(user.lastName); // 日本語がクッキーに入らないので(?)エンコード
 
   res.setHeader("Set-Cookie", [
-    `userOkapiaTour={"id":${id},"name":"${name}"}; max-age=86400; path=/`,
+    `userOkapiaTour={"id":${id},"name":"${name}"}; max-age=86400; path=/; Secure; `,
   ]);
   res.status(200).json(user);
 }

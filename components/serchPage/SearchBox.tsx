@@ -12,12 +12,13 @@ import { useState } from "react";
 import type { RootState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { setUrl } from "../../redux/states/urlSlice";
+import { setSubtitle } from "../../redux/states/subtitleSlice";
 
-type Props = {
-  setSubtitle: Function;
-};
+// import { SearchBTN } from "../MUI/button/searchSelect";
+import Button from "@mui/material/Button";
+import styled from "@emotion/styled";
 
-export function SearchBox({ setSubtitle }: Props) {
+export function SearchBox() {
   const url = useSelector((state: RootState) => state.url.value);
   const dispatch = useDispatch();
 
@@ -152,11 +153,9 @@ export function SearchBox({ setSubtitle }: Props) {
     );
   };
   const onsubmitHandler = (e: { preventDefault: () => void }) => {
-    setSubtitle(true);
+    dispatch(setSubtitle());
     e.preventDefault();
     let query = "?";
-    console.log(query);
-    console.log(url);
 
     if (abroad.length > 0) {
       if (areaCode.length > 0) {
@@ -179,17 +178,16 @@ export function SearchBox({ setSubtitle }: Props) {
         query = query + `abroad=${abroad}`;
       }
     }
-
     dispatch(setUrl(query));
   };
   return (
     <>
-      <div className={styles.howtosearch}>
+      {/* <div className={styles.howtosearch}>
         <div className={styles.searchareaname}>地名から探す</div>
         <Link href="/map/search-map">
           <div className={styles.searchmap}>地図から探す</div>
         </Link>
-      </div>
+      </div> */}
       <div className={styles.search_box_container}>
         <h3 className={styles.search_title}>Search tour</h3>
         <div className={styles.search_items}>
@@ -251,12 +249,31 @@ export function SearchBox({ setSubtitle }: Props) {
               {"bra" === country && <Bra city={city} setCity={setCity} />}
               {"egy" === country && <Egy city={city} setCity={setCity} />}
             </div>
-            <button className={styles.search_submit} onClick={onsubmitHandler}>
+            <PublicButton
+              variant="contained"
+              onClick={onsubmitHandler}
+            >
               検索
-            </button>
+            </PublicButton>
           </form>
         </div>
       </div>
     </>
   );
 }
+
+const PublicButton = styled(Button) ({
+  color: '#fff7ee',
+  backgroundColor: '#eb6100',
+  fontSize: 24,
+  fontWeight: 700,
+  boxShadow: '1px 1px 6px 1px #655656',
+  padding: '5px 25px 5px 25px',
+  marginTop: '20px',
+  border: 'none',
+  borderRadius: '16px',
+  '&:hover': {
+      boxShadow: 'none',
+      backgroundColor: '#b95b19',
+    },
+})

@@ -11,14 +11,12 @@ export function Header() {
   // console.log(cookie);
 
   // クッキーにセットされている名前をログイン名として表示
-  const loginId = cookie.loginId;
   const loginName = cookie.loginName;
 
   // ログアウト(クッキー削除)
   function logOut() {
     document.cookie = "userOkapiaTour=;path=/;max-age=0";
     const url = location.href;
-    console.log(url);
     if (url == `${process.env.NEXT_PUBLIC_BASE_URL}/`) {
       Router.reload();
     } else {
